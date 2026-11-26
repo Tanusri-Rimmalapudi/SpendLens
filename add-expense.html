@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+  SpendLens - add-expense.html (CPSC 349 Milestone 2)
+  One form used for both adding a new expense and editing an existing one.
+    - add-expense.html        -> Add mode (empty form, date defaults to today)
+    - add-expense.html?id=123 -> Edit mode (app.js fills in expense #123)
+  All behavior (validation, saving to localStorage, edit mode) lives in app.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- app.js changes this title to "SpendLens - Edit Expense" in edit mode -->
+  <title>SpendLens - Add Expense</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<!-- data-page tells app.js which page is loaded, so it runs setUpExpenseForm() -->
+<body data-page="add-expense">
+
+  <!-- Site header and navigation (app.js highlights the current page's link) -->
+  <header>
+    <h1>SpendLens</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="add-expense.html">Add Expense</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Heading text switches to "Edit Expense" when editing -->
+    <h2 id="form-title">Add Expense</h2>
+
+    <div class="box">
+      <!-- Status message, hidden while empty (e.g. shown if the ?id= expense was deleted) -->
+      <p class="form-message" id="form-message"></p>
+
+      <!-- Expense form: app.js handles submit, validates each field, then saves
+           to localStorage and redirects to expenses.html -->
+      <form id="expense-form">
+        <!-- Each input is followed by an empty .error paragraph where app.js
+             writes that field's validation message -->
+
+        <!-- Description (required) -->
+        <label for="description">Description</label>
+        <input type="text" id="description" placeholder="e.g. Trader Joe's groceries" required>
+        <p class="error" id="description-error"></p>
+
+        <!-- Amount in dollars (required, must be greater than 0) -->
+        <label for="amount">Amount ($)</label>
+        <input type="number" id="amount" min="0.01" step="0.01" placeholder="0.00" required>
+        <p class="error" id="amount-error"></p>
+
+        <!-- Date (required, defaults to today when adding) -->
+        <label for="date">Date</label>
+        <input type="date" id="date" required>
+        <p class="error" id="date-error"></p>
+
+        <!-- Category (required); these options must match CATEGORIES in app.js -->
+        <label for="category">Category</label>
+        <select id="category" required>
+          <option value="">Choose a category</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Rent</option>
+          <option>Fun</option>
+          <option>School</option>
+        </select>
+        <p class="error" id="category-error"></p>
+
+        <!-- Optional note, shown under the description on the Expenses page -->
+        <label for="note">Note (optional)</label>
+        <textarea id="note" rows="3"></textarea>
+
+        <!-- Button text changes to "Update Expense" in edit mode -->
+        <button type="submit" id="save-button">Save Expense</button>
+        <!-- Cancel just goes back to the list without saving -->
+        <a class="button" href="expenses.html">Cancel</a>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    SpendLens - CPSC 349 Milestone 2
+  </footer>
+
+  <!-- Loaded at the end of <body> so the form elements exist before the script runs -->
+  <script src="app.js"></script>
+</body>
+</html>
