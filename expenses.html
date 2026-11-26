@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpendLens - Expenses</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="expenses">
 
+  <header>
+    <h1>SpendLens</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="expenses.html">Expenses</a>
+      <a href="add-expense.html">Add Expense</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>All Expenses</h2>
+
+    <!-- Filter (results update as you type) -->
+    <div class="box">
+      <form class="filter-form" id="filter-form">
+        <label for="search">Search:</label>
+        <input type="search" id="search" placeholder="e.g. groceries">
+
+        <label for="category">Category:</label>
+        <select id="category">
+          <option>All</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Rent</option>
+          <option>Fun</option>
+          <option>School</option>
+        </select>
+
+        <button type="submit">Filter</button>
+      </form>
+    </div>
+
+    <!-- Expense list (rows built by app.js) -->
+    <div class="box">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="expense-body"></tbody>
+      </table>
+      <div class="list-footer">
+        <p><strong id="list-total">Total: $0.00</strong></p>
+        <button type="button" class="delete small" id="reset-data">Reset sample data</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    SpendLens - CPSC 349 Milestone 2
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
