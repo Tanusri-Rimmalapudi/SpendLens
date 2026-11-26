@@ -1,7 +1,8 @@
 # SpendLens
-A simple expense tracker for college students. CPSC 349, Milestone 2.
+A simple expense tracker for college students.
 
-Milestone 1 was a static HTML/CSS prototype. In Milestone 2, plain **JavaScript and DOM programming** make it work. It uses no frameworks or libraries.
+Milestone 1 was a static HTML/CSS prototype.
+Milestone 2, plain JavaScript and DOM programming make it work. It uses no frameworks or libraries.
 
 ## Features
 
