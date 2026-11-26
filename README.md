@@ -36,8 +36,8 @@ python -m http.server 5500
 then go to http://localhost:5500.
 
 ## Files
-`index.html` | Dashboard |
-`expenses.html` | Expense list with filter, edit, and delete |
-`add-expense.html` | Add / edit form |
-`styles.css` | Shared styles |
-`app.js` | All the app logic |
+- `index.html` - Dashboard
+- `expenses.html` - Expense list with filter, edit, and delete
+- `add-expense.html` - Add / edit form
+- `styles.css` - Shared styles
+- `app.js` - All the app logic
