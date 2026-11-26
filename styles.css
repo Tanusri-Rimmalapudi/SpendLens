@@ -217,14 +217,6 @@ form button {
   margin-top: 22px;
 }
 
-/* ----- Footer ----- */
-footer {
-  text-align: center;
-  color: var(--gray);
-  font-size: 14px;
-  padding: 25px;
-}
-
 /* ----- Small screens ----- */
 @media (max-width: 600px) {
   .summary {
